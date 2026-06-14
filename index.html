@@ -136,6 +136,44 @@
     .trust .item h3 { margin: 0 0 4px; font-size: 16px; }
     .trust .item p { margin: 0; color: var(--slate); font-size: 14px; }
 
+    /* Screenshots */
+    .shots { background: var(--bg); }
+    .shot-block { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; margin-bottom: 64px; }
+    .shot-block:last-child { margin-bottom: 0; }
+    .shot-block.reverse .shot-figure { order: 2; }
+    .shot-block.reverse .shot-copy { order: 1; }
+    .shot-block.full { grid-template-columns: 1fr; }
+    .shot-copy .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--blue-700); margin-bottom: 10px; }
+    .shot-copy h3 { font-size: 24px; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .shot-copy p { color: var(--slate); font-size: 16px; margin: 0 0 16px; }
+    .usecase {
+      display: flex; gap: 10px; align-items: flex-start;
+      background: #eaf1fc; border: 1px solid var(--blue-200); border-radius: 10px;
+      padding: 12px 14px; font-size: 14.5px; color: var(--ink);
+    }
+    .usecase b { color: var(--blue-800); }
+    .usecase .tag { flex: 0 0 auto; font-weight: 700; color: var(--blue-700); }
+    /* Browser-frame figure */
+    .shot-figure {
+      border-radius: 12px; overflow: hidden; background: #fff;
+      border: 1px solid var(--line); box-shadow: 0 18px 50px rgba(20,40,80,0.14);
+    }
+    .shot-figure .chrome {
+      height: 34px; background: #f0f3f8; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; gap: 7px; padding: 0 14px;
+    }
+    .shot-figure .chrome i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+    .shot-figure .chrome .r { background: #ff5f57; } .shot-figure .chrome .y { background: #febc2e; } .shot-figure .chrome .g { background: #28c840; }
+    .shot-figure .chrome span { margin-left: 10px; font-size: 12px; color: var(--slate); font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .shot-figure img { display: block; width: 100%; height: auto; }
+    .shot-figure.inset { background: #c9ccd1; }
+    .shot-figure.inset img { padding: 0; }
+
+    @media (max-width: 820px) {
+      .shot-block { grid-template-columns: 1fr; gap: 22px; margin-bottom: 44px; }
+      .shot-block.reverse .shot-figure { order: 0; } .shot-block.reverse .shot-copy { order: 0; }
+    }
+
     /* Final CTA */
     .final {
       text-align: center;
@@ -170,6 +208,7 @@
       <nav class="nav-links">
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
+        <a href="#screenshots">Screenshots</a>
         <a href="#requirements">Requirements</a>
         <a href="https://github.com/sarthaks24x7/atlas-console-app/releases/latest">Download</a>
       </nav>
@@ -278,6 +317,83 @@
             <h3>Run SQL</h3>
             <p>Type a query, hit <code class="k">Ctrl+Enter</code>, and read your results. Close the console window to quit.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="shots" id="screenshots">
+    <div class="wrap">
+      <h2>See it in action</h2>
+      <p class="sub">A look at the real interface. (Sample data shown — no real connections or query results.)</p>
+
+      <!-- Workbench (full width) -->
+      <div class="shot-block full">
+        <div class="shot-copy" style="text-align:center;max-width:760px;margin:0 auto 28px;">
+          <div class="eyebrow">The workbench</div>
+          <h3>Everything in one window</h3>
+          <p>Connections and the catalog on the left, a Monaco SQL editor in the middle, and a fast, virtualized results grid below — the whole tool on a single screen, running in your browser.</p>
+        </div>
+        <div class="shot-figure">
+          <div class="chrome"><i class="r"></i><i class="y"></i><i class="g"></i><span>127.0.0.1:4717</span></div>
+          <img src="screenshots/workbench.png" alt="Atlas Console main workbench: connections sidebar, SQL editor, and results grid" loading="lazy" />
+        </div>
+        <div class="usecase" style="max-width:760px;margin:22px auto 0;">
+          <span class="tag">Use case</span>
+          <span>Pull a quick ad-hoc extract from a Fusion pod — write SQL, press <b>Ctrl+Enter</b>, read the rows — without building a BI Publisher report first.</span>
+        </div>
+      </div>
+
+      <!-- Connections -->
+      <div class="shot-block">
+        <div class="shot-copy">
+          <div class="eyebrow">Connections &amp; catalog</div>
+          <h3>Save every pod, see status at a glance</h3>
+          <p>Keep all your Fusion pods in one list with live status dots — <b>green</b> connected, <b>amber</b> connecting, <b>red</b> failed. Expand any connection to browse its BI Publisher catalog tree: folders, reports, and data models.</p>
+          <div class="usecase"><span class="tag">Use case</span><span>Switch between Dev, Test, and Prod pods in a click — each SQL tab remembers which connection it runs against.</span></div>
+        </div>
+        <div class="shot-figure" style="max-width:340px;margin:0 auto;">
+          <img src="screenshots/connections.png" alt="Connections panel showing three saved pods with status dots and an expanded catalog tree" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Get SQL -->
+      <div class="shot-block reverse">
+        <div class="shot-copy">
+          <div class="eyebrow">Data models</div>
+          <h3>Lift the SQL out of any data model</h3>
+          <p>Open an existing BIP data model and Atlas Console extracts every dataset's SQL, classifies its bind variables by where they come from, and maps the master&nbsp;→&nbsp;detail structure. Copy it, or open it straight in a SQL tab.</p>
+          <div class="usecase"><span class="tag">Use case</span><span>Reuse the exact query behind a delivered report instead of reverse-engineering it by hand.</span></div>
+        </div>
+        <div class="shot-figure">
+          <img src="screenshots/get-sql.png" alt="Get SQL dialog showing extracted datasets, bind variables, and parameters from a data model" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Bind params -->
+      <div class="shot-block">
+        <div class="shot-copy">
+          <div class="eyebrow">Bind variables</div>
+          <h3>Prompts for <span style="font-family:ui-monospace,Menlo,Consolas,monospace">:binds</span>, with a live preview</h3>
+          <p>When your SQL uses <span style="font-family:ui-monospace,Menlo,Consolas,monospace">:bind</span> variables, Atlas Console prompts for each value with the right type — text, number, date, or raw — and shows a live preview of the <b>exact</b> query sent to Oracle. No guessing.</p>
+          <div class="usecase"><span class="tag">Use case</span><span>Parameterize a query once, then re-run it with different org IDs, dates, or statuses.</span></div>
+        </div>
+        <div class="shot-figure">
+          <img src="screenshots/bind-params.png" alt="Bind parameters dialog with a live preview of the substituted SQL query" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Migration -->
+      <div class="shot-block reverse">
+        <div class="shot-copy">
+          <div class="eyebrow">Report migration</div>
+          <h3>Drag-and-drop reports between pods</h3>
+          <p>Browse two pods side by side and drag a folder, report, or data model from one onto a folder in the other. A confirmation shows the exact source and target paths before anything is copied; folders recurse.</p>
+          <div class="usecase"><span class="tag">Use case</span><span>Promote a report from a Test pod to Production without exporting and re-importing catalog archives.</span></div>
+        </div>
+        <div class="shot-figure">
+          <img src="screenshots/migration.png" alt="Report migration dialog with source and target pods side by side and a highlighted drop target" loading="lazy" />
         </div>
       </div>
     </div>
