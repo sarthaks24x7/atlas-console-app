@@ -94,6 +94,8 @@
     .btn-ghost:hover { border-color: var(--blue-300); }
     .dl-note { margin-top: 14px; font-size: 14px; color: var(--slate); }
     .dl-note strong { color: var(--blue-800); }
+    .dl-count { margin-top: 6px; font-size: 13px; color: var(--slate); }
+    .dl-count strong { color: var(--blue-800); }
 
     /* Sections */
     section { padding: 72px 0; }
@@ -241,6 +243,7 @@
         <strong>v1 is available now.</strong> The download button gives you
         <code class="k">AtlasConsole-win-x64.zip</code> directly. Extract it anywhere and run.
       </p>
+      <p class="dl-count" id="dl-count" hidden>Downloaded <strong id="dl-count-n">0</strong> times</p>
     </div>
   </section>
 
@@ -445,6 +448,46 @@
       <div style="margin-top:8px;">Not affiliated with Oracle Corporation. Oracle and Fusion are trademarks of their respective owners.</div>
     </div>
   </footer>
+
+  <!-- Live download count from GitHub Releases (cached 1h to respect API limits) -->
+  <script>
+    (function () {
+      var API = 'https://api.github.com/repos/sarthaks24x7/atlas-console-app/releases';
+      var ASSET = 'AtlasConsole-win-x64.zip';
+      var CACHE_KEY = 'ac_dl_count';
+      var CACHE_MS = 60 * 60 * 1000; // 1 hour
+
+      function render(n) {
+        var el = document.getElementById('dl-count');
+        var num = document.getElementById('dl-count-n');
+        if (!el || !num || typeof n !== 'number') return;
+        num.textContent = n.toLocaleString();
+        el.hidden = false;
+      }
+
+      try {
+        var cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+        if (cached && (Date.now() - cached.t) < CACHE_MS) {
+          render(cached.n);
+          return;
+        }
+      } catch (e) {}
+
+      fetch(API, { headers: { 'Accept': 'application/vnd.github+json' } })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (releases) {
+          var total = 0;
+          (releases || []).forEach(function (rel) {
+            (rel.assets || []).forEach(function (a) {
+              if (a.name === ASSET) total += (a.download_count || 0);
+            });
+          });
+          try { localStorage.setItem(CACHE_KEY, JSON.stringify({ n: total, t: Date.now() })); } catch (e) {}
+          render(total);
+        })
+        .catch(function () { /* stay hidden on error/rate-limit */ });
+    })();
+  </script>
 
 </body>
 </html>
