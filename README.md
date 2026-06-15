@@ -40,4 +40,16 @@ To quit, close the console window. To uninstall, run `Uninstall.cmd` and delete 
 
 ---
 
+## Ownership & licensing
+
+© 2026 **Sarthak**. All rights reserved.
+
+- **Atlas Console**™ and the Atlas Console logo are trademarks of Sarthak.
+- This repository (the landing page, its content, design, and assets) is
+  proprietary; see [LICENSE](LICENSE). No part may be reused without written
+  permission.
+- The **Atlas Console application** is proprietary software, licensed and not
+  sold, and is distributed under its own End User License Agreement included in
+  the download.
+
 *Not affiliated with Oracle Corporation. Oracle and Fusion are trademarks of their respective owners.*
