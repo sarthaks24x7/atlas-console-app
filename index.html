@@ -457,7 +457,7 @@
     (function () {
       var API = 'https://api.github.com/repos/sarthaks24x7/atlas-console-app/releases';
       var ASSET = 'AtlasConsole-win-x64.zip';
-      var CACHE_KEY = 'ac_dl_count';
+      var CACHE_KEY = 'ac_dl_count_v2'; // bumped: cache stores the live count only; baseline is added at render
       var CACHE_MS = 60 * 60 * 1000; // 1 hour
 
       // Baseline carried over from the original v1 release asset. GitHub's download_count
@@ -472,7 +472,7 @@
         var el = document.getElementById('dl-count');
         var num = document.getElementById('dl-count-n');
         if (!el || !num || typeof n !== 'number') return;
-        num.textContent = n.toLocaleString();
+        num.textContent = (n + BASELINE).toLocaleString(); // n is the live GitHub count; add the carried-over baseline
         el.hidden = false;
       }
 
@@ -487,7 +487,7 @@
       fetch(API, { headers: { 'Accept': 'application/vnd.github+json' } })
         .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
         .then(function (releases) {
-          var total = BASELINE;
+          var total = 0; // live GitHub count only; BASELINE is applied in render()
           (releases || []).forEach(function (rel) {
             (rel.assets || []).forEach(function (a) {
               if (a.name === ASSET) total += (a.download_count || 0);
