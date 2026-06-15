@@ -460,6 +460,14 @@
       var CACHE_KEY = 'ac_dl_count';
       var CACHE_MS = 60 * 60 * 1000; // 1 hour
 
+      // Baseline carried over from the original v1 release asset. GitHub's download_count
+      // is per-asset: when the v1 zip was re-uploaded on 2026-06-15 (rebuild) the asset was
+      // replaced, which reset its counter to 0 and discarded the 15 downloads it had already
+      // accumulated. This constant restores that historical total so the public number stays
+      // accurate. Temporary: once we move to per-release tags (no more asset clobbering),
+      // fold this in / retire it.
+      var BASELINE = 15;
+
       function render(n) {
         var el = document.getElementById('dl-count');
         var num = document.getElementById('dl-count-n');
@@ -479,7 +487,7 @@
       fetch(API, { headers: { 'Accept': 'application/vnd.github+json' } })
         .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
         .then(function (releases) {
-          var total = 0;
+          var total = BASELINE;
           (releases || []).forEach(function (rel) {
             (rel.assets || []).forEach(function (a) {
               if (a.name === ASSET) total += (a.download_count || 0);
