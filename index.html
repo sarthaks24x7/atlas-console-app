@@ -210,11 +210,12 @@
         Atlas Console
       </div>
       <nav class="nav-links">
+        <a href="#v11">What's new</a>
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
         <a href="#screenshots">Screenshots</a>
         <a href="#requirements">Requirements</a>
-        <a href="https://github.com/sarthaks24x7/atlas-console-app/releases/download/v1/AtlasConsole-win-x64.zip">Download</a>
+        <a href="https://github.com/sarthaks24x7/atlas-console-app/releases/latest/download/AtlasConsole-win-x64.zip">Download</a>
       </nav>
     </div>
   </header>
@@ -236,16 +237,51 @@
         <span class="badge">Free</span>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/sarthaks24x7/atlas-console-app/releases/download/v1/AtlasConsole-win-x64.zip">
+        <a class="btn btn-primary" href="https://github.com/sarthaks24x7/atlas-console-app/releases/latest/download/AtlasConsole-win-x64.zip">
           ⬇ Download for Windows
         </a>
         <a class="btn btn-ghost" href="#how">See how it works</a>
       </div>
       <p class="dl-note">
-        <strong>v1 is available now.</strong> The download button gives you
+        <strong>v1.1 is available now.</strong> The download button gives you
         <code class="k">AtlasConsole-win-x64.zip</code> directly. Extract it anywhere and run.
       </p>
       <p class="dl-count" id="dl-count" hidden>Downloaded <strong id="dl-count-n">0</strong> times</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S NEW IN v1.1 -->
+  <section id="v11" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <h2>New in v1.1</h2>
+      <p class="sub">Built from tester feedback on v1. Existing users just download the new zip; the pod-side setup upgrades itself silently on first connect.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="ic">📏</div>
+          <h3>Large queries just run</h3>
+          <p>The size ceiling that made long scripts and big <code class="k">IN (...)</code> lists fail is gone. Oversized queries are sent in chunks automatically, and a small badge shows when large-query mode kicked in. An 800-line query now runs like a one-liner.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🛟</div>
+          <h3>Back up any catalog object</h3>
+          <p>Right-click anything in the catalog tree, or use Tools &gt; Back up object, to copy it to another folder on the pod or save it to your PC before you touch it.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🔎</div>
+          <h3>Get DM SQL from a report</h3>
+          <p>Point at any report and Atlas Console resolves its data model and shows you the SQL inside, read-only. No more hunting through folders to find which model feeds which report.</p>
+        </div>
+        <div class="card">
+          <div class="ic">📤</div>
+          <h3>Fetch and export every row</h3>
+          <p>The result bar now tells you when a result stopped at the row limit. Clear the Limit box and the query fetches everything, and Export CSV always includes every fetched row.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🌙</div>
+          <h3>Dark mode &amp; live progress</h3>
+          <p>A full dark theme, plus a running timer right in the output bar so you can see a query is in flight and how long it has been going.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -434,9 +470,9 @@
   <section class="final">
     <div class="wrap">
       <h2>Ready to try Atlas Console?</h2>
-      <p class="sub">Download v1 for Windows and run your first query in under a minute.</p>
+      <p class="sub">Download v1.1 for Windows and run your first query in under a minute.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/sarthaks24x7/atlas-console-app/releases/download/v1/AtlasConsole-win-x64.zip">⬇ Download for Windows</a>
+        <a class="btn btn-primary" href="https://github.com/sarthaks24x7/atlas-console-app/releases/latest/download/AtlasConsole-win-x64.zip">⬇ Download for Windows</a>
       </div>
     </div>
   </section>
