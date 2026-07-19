@@ -119,6 +119,42 @@
     .card h3 { margin: 0 0 8px; font-size: 18px; }
     .card p { margin: 0; color: var(--slate); font-size: 15px; }
 
+    /* Mini app window that crossfades light -> dark (pure CSS, no images) */
+    .thememini { position: relative; height: 116px; border-radius: 10px; overflow: hidden; margin-bottom: 16px; border: 1px solid var(--line); }
+    .tm { position: absolute; inset: 0; display: flex; flex-direction: column; }
+    .tm-bar { height: 18px; display: flex; align-items: center; gap: 4px; padding: 0 8px; flex-shrink: 0; }
+    .tm-bar i { width: 6px; height: 6px; border-radius: 50%; display: block; }
+    .tm-body { flex: 1; display: flex; min-height: 0; }
+    .tm-side { width: 26%; padding: 9px 7px; display: flex; flex-direction: column; gap: 7px; border-right: 1px solid transparent; }
+    .tm-side b { height: 5px; border-radius: 3px; display: block; }
+    .tm-main { flex: 1; padding: 9px 9px 8px; display: flex; flex-direction: column; gap: 6px; }
+    .tm-main .l { height: 5px; border-radius: 3px; display: block; }
+    .tm-grid { margin-top: auto; display: flex; flex-direction: column; gap: 4px; }
+    .tm-grid u { height: 7px; border-radius: 2px; display: block; }
+    .tm-light { background: #ffffff; }
+    .tm-light .tm-bar { background: #eef3fb; }
+    .tm-light .tm-bar i { background: #d3dded; }
+    .tm-light .tm-side { border-right-color: var(--line); }
+    .tm-light .tm-side b { background: #dbe5f3; }
+    .tm-light .l-kw { background: var(--blue-500); width: 55%; }
+    .tm-light .l-str { background: #58b788; width: 72%; }
+    .tm-light .l-txt { background: #c9d4e6; width: 42%; }
+    .tm-light .tm-grid u { background: #eef2f9; }
+    .tm-light .tm-grid u:first-child { background: #dde7f6; }
+    .tm-dark { background: #14171b; }
+    .tm-dark .tm-bar { background: #171a1f; }
+    .tm-dark .tm-bar i { background: #2a2f36; }
+    .tm-dark .tm-side { border-right-color: #262c34; }
+    .tm-dark .tm-side b { background: #262c34; }
+    .tm-dark .l-kw { background: #6f9ee0; width: 55%; }
+    .tm-dark .l-str { background: #6cc591; width: 72%; }
+    .tm-dark .l-txt { background: #3a4149; width: 42%; }
+    .tm-dark .tm-grid u { background: #1b1f24; }
+    .tm-dark .tm-grid u:first-child { background: #22272e; }
+    .tm-dark { opacity: 0; animation: tmfade 8s ease-in-out infinite; }
+    @keyframes tmfade { 0%, 38% { opacity: 0; } 50%, 88% { opacity: 1; } 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .tm-dark { animation: none; opacity: 1; } }
+
     /* Steps */
     .steps { max-width: 760px; margin: 0 auto; counter-reset: step; }
     .step { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); }
@@ -277,7 +313,28 @@
           <p>The result bar now tells you when a result stopped at the row limit. Clear the Limit box and the query fetches everything, and Export CSV always includes every fetched row.</p>
         </div>
         <div class="card">
-          <div class="ic">🌙</div>
+          <div class="thememini" aria-hidden="true">
+            <div class="tm tm-light">
+              <div class="tm-bar"><i></i><i></i><i></i></div>
+              <div class="tm-body">
+                <div class="tm-side"><b style="width:80%"></b><b style="width:60%"></b><b style="width:70%"></b></div>
+                <div class="tm-main">
+                  <span class="l l-kw"></span><span class="l l-str"></span><span class="l l-txt"></span>
+                  <div class="tm-grid"><u></u><u></u><u></u></div>
+                </div>
+              </div>
+            </div>
+            <div class="tm tm-dark">
+              <div class="tm-bar"><i></i><i></i><i></i></div>
+              <div class="tm-body">
+                <div class="tm-side"><b style="width:80%"></b><b style="width:60%"></b><b style="width:70%"></b></div>
+                <div class="tm-main">
+                  <span class="l l-kw"></span><span class="l l-str"></span><span class="l l-txt"></span>
+                  <div class="tm-grid"><u></u><u></u><u></u></div>
+                </div>
+              </div>
+            </div>
+          </div>
           <h3>Dark mode &amp; live progress</h3>
           <p>A full dark theme, plus a running timer right in the output bar so you can see a query is in flight and how long it has been going.</p>
         </div>
