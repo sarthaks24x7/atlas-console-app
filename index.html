@@ -249,7 +249,7 @@
         Atlas Console
       </div>
       <nav class="nav-links">
-        <a href="#v11">What's new</a>
+        <a href="#whats-new">What's new</a>
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
         <a href="#screenshots">Screenshots</a>
@@ -282,38 +282,84 @@
         <a class="btn btn-ghost" href="#how">See how it works</a>
       </div>
       <p class="dl-note">
-        <strong>v1.1 is available now.</strong> The download button gives you
+        <strong>v1.2 is available now.</strong> The download button gives you
         <code class="k">AtlasConsole-win-x64.zip</code> directly. Extract it anywhere and run.
       </p>
       <p class="dl-count" id="dl-count" hidden>Downloaded <strong id="dl-count-n">0</strong> times</p>
     </div>
   </section>
 
-  <!-- WHAT'S NEW IN v1.1 -->
-  <section id="v11" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <!-- WHAT'S NEW (latest release) -->
+  <section id="whats-new" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
     <div class="wrap">
-      <h2>New in v1.1</h2>
-      <p class="sub">Built from tester feedback on v1. Existing users just download the new zip; the pod-side setup upgrades itself silently on first connect.</p>
+      <h2>New in v1.2</h2>
+      <p class="sub">Everyday editor and query-running improvements. Existing users just download the new zip; your saved connections, tabs and SQL are untouched.</p>
       <div class="grid">
         <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/></svg></div>
-          <h3>Large queries just run</h3>
-          <p>The size ceiling that made long scripts and big <code class="k">IN (...)</code> lists fail is gone. Oversized queries are sent in chunks automatically, and a small badge shows when large-query mode kicked in. An 800-line query now runs like a one-liner.</p>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg></div>
+          <h3>Autocomplete from your own SQL</h3>
+          <p>As you type, the editor suggests the words already used in that tab: table aliases, column names, anything you have written, alongside the SQL keyword list. Long Fusion column names stop being something you retype.</p>
         </div>
         <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m4.93 19.07 4.24-4.24"/><circle cx="12" cy="12" r="4"/></svg></div>
-          <h3>Back up any catalog object</h3>
-          <p>Right-click anything in the catalog tree, or use Tools &gt; Back up object, to copy it to another folder on the pod or save it to your PC before you touch it.</p>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 9 5 12 1.774-5.226L21 14 9 9z"/><path d="m16.071 16.071 4.243 4.243"/><path d="m7.188 2.239.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656-2.12 2.122"/></svg></div>
+          <h3>Run the statement your cursor is in</h3>
+          <p>Keep several queries in one tab, separated by semicolons. Put the cursor in one and Run executes just that one, with no selecting by hand. Selecting text still wins whenever you want it to.</p>
         </div>
         <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-          <h3>Get DM SQL from a report</h3>
-          <p>Point at any report and Atlas Console resolves its data model and shows you the SQL inside, read-only. No more hunting through folders to find which model feeds which report.</p>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></div>
+          <h3>Stop a running query</h3>
+          <p>Run turns into Stop while a query is in flight, next to a live timer. Stopping returns straight away and leaves the result already on screen untouched, so a slow query never traps you.</p>
         </div>
         <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></div>
-          <h3>Fetch and export every row</h3>
-          <p>The result bar now tells you when a result stopped at the row limit. Clear the Limit box and the query fetches everything, and Export CSV always includes every fetched row.</p>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="18" x="3" y="3" rx="1"/><rect width="7" height="18" x="14" y="3" rx="1"/></svg></div>
+          <h3>Three tabs at once</h3>
+          <p>Start a slow query in one tab and carry on working in another. Up to three run at the same time, each with its own timer and result, and a spinner on the tab shows which ones are still going.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg></div>
+          <h3>A clearer result grid</h3>
+          <p>The table now has proper column separators and stronger row lines, so columns stay readable on low-contrast screens and projectors. Light and dark alike.</p>
+        </div>
+      </div>
+      <p class="sub" style="margin-top:28px;">Added in v1.1: large queries that no longer hit a size ceiling, backup for any catalog object, Get DM SQL from a report, full-result export, and dark mode.</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <h2>What you get</h2>
+      <p class="sub">A focused, fast SQL workbench built specifically for the Oracle Fusion BI Publisher workflow.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h3>Ad-hoc SQL, instantly</h3>
+          <p>Write SQL against your Fusion pod and get results back in a fast, virtualized table, with no report-building and no waiting.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Monaco editor</h3>
+          <p>The same editor as VS Code: syntax highlighting, formatting, autocomplete from your own SQL, Ctrl+Enter to run the statement your cursor is in, and bind-parameter prompts.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></div>
+          <h3>Catalog &amp; data models</h3>
+          <p>Browse the BIP catalog tree and pull the generated SQL straight out of existing data models.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div>
+          <h3>Multiple connections</h3>
+          <p>Save several Fusion pods, switch between them, and keep tabs of in-progress SQL per connection.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>Private by design</h3>
+          <p>Everything runs on your machine. Connection passwords are encrypted at rest; nothing is sent anywhere but your own pod.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
+          <h3>Zero footprint</h3>
+          <p>No installer, no admin rights, no registry, no services. Unzip, double-click, done. Clean up by deleting the folder.</p>
         </div>
         <div class="card">
           <div class="thememini" aria-hidden="true">
@@ -338,48 +384,8 @@
               </div>
             </div>
           </div>
-          <h3>Dark mode &amp; live progress</h3>
-          <p>A full dark theme, plus a running timer right in the output bar so you can see a query is in flight and how long it has been going.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section id="features">
-    <div class="wrap">
-      <h2>What you get</h2>
-      <p class="sub">A focused, fast SQL workbench built specifically for the Oracle Fusion BI Publisher workflow.</p>
-      <div class="grid">
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3>Ad-hoc SQL, instantly</h3>
-          <p>Write SQL against your Fusion pod and get results back in a fast, virtualized table, with no report-building and no waiting.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-          <h3>Monaco editor</h3>
-          <p>The same editor as VS Code: syntax highlighting, formatting, run-selection with Ctrl+Enter, and bind-parameter prompts.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></div>
-          <h3>Catalog &amp; data models</h3>
-          <p>Browse the BIP catalog tree and pull the generated SQL straight out of existing data models.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div>
-          <h3>Multiple connections</h3>
-          <p>Save several Fusion pods, switch between them, and keep tabs of in-progress SQL per connection.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <h3>Private by design</h3>
-          <p>Everything runs on your machine. Connection passwords are encrypted at rest; nothing is sent anywhere but your own pod.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
-          <h3>Zero footprint</h3>
-          <p>No installer, no admin rights, no registry, no services. Unzip, double-click, done. Clean up by deleting the folder.</p>
+          <h3>Light and dark</h3>
+          <p>A full dark theme alongside the light one, with every panel, grid and dialog designed for both rather than inverted as an afterthought.</p>
         </div>
       </div>
     </div>
@@ -530,7 +536,7 @@
   <section class="final">
     <div class="wrap">
       <h2>Ready to try Atlas Console?</h2>
-      <p class="sub">Download v1.1 for Windows and run your first query in under a minute.</p>
+      <p class="sub">Download v1.2 for Windows and run your first query in under a minute.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/sarthaks24x7/atlas-console-app/releases/latest/download/AtlasConsole-win-x64.zip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> Download for Windows</a>
       </div>
